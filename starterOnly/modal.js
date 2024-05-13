@@ -21,3 +21,14 @@ function launchModal() {
 }
 
 
+// Close modal event
+
+// DOM Elements
+const closeBtn = document.querySelectorAll(".close");
+
+// Close modal form
+closeBtn.forEach((btn) => btn.addEventListener("click", closeModal));
+
+function closeModal() {
+  modalbg.style.display = "none";
+}
