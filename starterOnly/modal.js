@@ -39,3 +39,54 @@ document.addEventListener('keydown', function(e) {
     modalbg.style.display = "none";
   }
 });
+
+// FORM VALIDATION
+
+
+// DOM Elements
+const form = document.querySelector('form');
+const firstName = document.getElementById('first');
+const lastName = document.getElementById('last');
+const email = document.getElementById('email');
+const quantity = document.getElementById('quantity');
+
+// Form submit event
+
+form.addEventListener('submit', function(e) {
+  e.preventDefault(); // Prevent the form from being submitted and the page from refreshing
+  let valid = true;
+
+  if (firstName.value.trim().length < 2) {
+    valid = false;
+    firstName.style.border = '2px solid red';
+  } else {
+    firstName.style.border = '2px solid green';
+  }
+
+  if (lastName.value.trim().length < 2) {
+    valid = false;
+    lastName.style.border = '2px solid red';
+  } else {
+    lastName.style.border = '2px solid green';
+  }
+
+  if (!email.value.includes('@') && !email.value.includes('.')){ // Check if the email is valid by checking if it contains an @ and a . 
+    valid = false;
+    email.style.border = '2px solid red';
+  } else {
+    email.style.border = '2px solid green';
+  }
+
+  if (quantity.value.trim() === '' || isNaN(quantity.value)) { // Check if the quantity is a number and not empty IF the quantity is empty, it will be considered as a string
+    valid = false;
+    quantity.style.border = '2px solid red';
+  } else {
+    quantity.style.border = '2px solid green';
+  }
+
+  if (!valid) { // If the form is not valid, we return to stop the function
+    return; 
+  }
+
+  form.submit();
+});
