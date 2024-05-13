@@ -32,3 +32,10 @@ closeBtn.forEach((btn) => btn.addEventListener("click", closeModal));
 function closeModal() {
   modalbg.style.display = "none";
 }
+
+// Close modal with the escape key
+document.addEventListener('keydown', function(e) { 
+  if (e.key === 'Escape') { 
+    modalbg.style.display = "none";
+  }
+});
