@@ -148,6 +148,13 @@ form.addEventListener('submit', function(e) {
         document.getElementById('location_error').textContent = "";
     }
 
+    // Add input event listener to location input
+    locations.forEach(function(location) {
+        location.addEventListener('input', function() {
+            document.getElementById('location_error').textContent = ""; // Clear the error message
+        });
+    });
+
     // Validation for Checkbox Terms and Conditions
     if (!termsCheckbox.checked) {
         valid = false;
