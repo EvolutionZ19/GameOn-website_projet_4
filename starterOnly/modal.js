@@ -192,4 +192,18 @@ form.addEventListener('submit', function (e) {
           termsCheckboxError.remove();
       }
   }
+
+  // Add input event listeners to all input fields
+  const inputFields = document.querySelectorAll('input'); // Select all input fields
+  inputFields.forEach((input) => {
+      input.addEventListener('input', function () { // Add an input event listener to each input field
+          const formData = input.parentNode; // Select the parent of the input field
+          const error_message = formData.querySelector('.error_message'); // Check if an error message exists
+          if (error_message && input.value.trim().length >= 2) { 
+              error_message.remove();
+              input.style.border = '2px solid green';
+          }
+      });
+  });
+  
 });
