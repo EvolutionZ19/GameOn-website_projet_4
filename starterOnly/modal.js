@@ -77,6 +77,16 @@ form.addEventListener('submit', function (e) {
       firstName.style.border = '2px solid green';
   }
 
+   // Add input event listener for the first name field
+  firstName.addEventListener('input', function() {
+   const firstNameError = firstName.parentNode.querySelector('.error_message');
+    if (firstName.value.trim().length >= 2 && firstNameError) {
+      firstNameError.remove();
+      firstName.style.border = '2px solid green';
+  
+    }
+});
+
   // Validation for Last Name
   if (lastName.value.trim().length < 2) {
       valid = false;
@@ -95,6 +105,15 @@ form.addEventListener('submit', function (e) {
       }
       lastName.style.border = '2px solid green';
   }
+
+  // Add input event listener for the last name field
+  lastName.addEventListener('input', function() {
+    const lastNameError = lastName.parentNode.querySelector('.error_message');
+    if (lastName.value.trim().length >= 2 && lastNameError) {
+        lastNameError.remove();
+        lastName.style.border = '2px solid green';
+    }
+  });
 
   // Validation for Email
   if (!email.value.includes('@') || !email.value.includes('.')) {
@@ -115,6 +134,15 @@ form.addEventListener('submit', function (e) {
       email.style.border = '2px solid green';
   }
 
+  // Add input event listener for the email field
+  email.addEventListener('input', function() {
+    const emailError = email.parentNode.querySelector('.error_message');
+    if ((email.value.includes('@') && email.value.includes('.')) && emailError) {
+        emailError.remove();
+        email.style.border = '2px solid green';
+    }
+  });
+
   // Validation for Quantity
   if (!(/^\d{1}$/).test(quantity.value.trim())) {
       valid = false;
@@ -134,6 +162,15 @@ form.addEventListener('submit', function (e) {
       quantity.style.border = '2px solid green';
   }
 
+  // Add input event listener for the quantity field
+  quantity.addEventListener('input', function() {
+    const quantityError = quantity.parentNode.querySelector('.error_message');
+    if ((/^\d{1}$/).test(quantity.value.trim()) && quantityError) {
+        quantityError.remove();
+        quantity.style.border = '2px solid green';
+    }
+  });
+
   // Validation for Birthdate
   if (!birthdate.value) {
       valid = false;
@@ -152,6 +189,15 @@ form.addEventListener('submit', function (e) {
       }
       birthdate.style.border = '2px solid green';
   }
+
+  // Add input event listener for the birthdate field
+birthdate.addEventListener('input', function() {
+  const birthdateError = birthdate.parentNode.querySelector('.error_message');
+  if (birthdate.value && birthdateError) {
+      birthdateError.remove();
+      birthdate.style.border = '2px solid green';
+  }
+});
 
   // Validation for Tournament Location
   let locationChecked = false;
@@ -193,17 +239,22 @@ form.addEventListener('submit', function (e) {
       }
   }
 
+  // 
+
+
+
   // Add input event listeners to all input fields
-  const inputFields = document.querySelectorAll('input'); // Select all input fields
-  inputFields.forEach((input) => {
-      input.addEventListener('input', function () { // Add an input event listener to each input field
-          const formData = input.parentNode; // Select the parent of the input field
-          const error_message = formData.querySelector('.error_message'); // Check if an error message exists
-          if (error_message && input.value.trim().length >= 2) { 
-              error_message.remove();
-              input.style.border = '2px solid green';
-          }
-      });
-  });
+const inputFields = document.querySelectorAll('input');
+inputFields.forEach((input) => {
+    input.addEventListener('input', function() {
+        const formData = input.parentNode;
+        const error_message = formData.querySelector('.error_message');
+        if (error_message && input.value.trim().length >= 2) {
+            error_message.remove();
+            input.style.border = '2px solid green';
+        }
+    });
+});
+
   
 });

@@ -527,3 +527,7 @@ footer {
   }
 }
 
+.error_message {
+  font-size: 18px;
+  color: red;
+}
