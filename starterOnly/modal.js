@@ -239,10 +239,6 @@ birthdate.addEventListener('input', function() {
       }
   }
 
-  // 
-
-
-
   // Add input event listeners to all input fields
 const inputFields = document.querySelectorAll('input');
 inputFields.forEach((input) => {
@@ -256,5 +252,15 @@ inputFields.forEach((input) => {
     });
 });
 
+// Submit the form if valid
+if (valid) {
+  // Hide the form
+  form.style.display = 'none';
+  // Display submission confirmation message
+  const confirmationMessage = document.createElement('div');
+  confirmationMessage.innerHTML = "Merci ! Votre inscription a été reçue.";
+  confirmationMessage.style.color = 'green';
+  form.parentNode.appendChild(confirmationMessage);
+}
   
 });
