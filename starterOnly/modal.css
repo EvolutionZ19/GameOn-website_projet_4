@@ -531,3 +531,47 @@ footer {
   font-size: 18px;
   color: red;
 }
+
+/* media query mobile */
+@media screen and (max-width: 425px) {
+  .topnav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .topnav a {
+    display: none;
+    color: black;
+  }
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+  .topnav a.active {
+    border-radius: 15px;
+  }
+  .topnav.responsive {
+    display: flex;
+    flex-direction: column;
+  }
+  .navlinks{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .header-logo {
+    width: 70%;
+  }
+  .header-logo img{
+    width: 80%;
+    padding: 16px 0;
+  }
+  .hero-headline{
+    font-size: 40px;
+    font-weight: bold;
+  }
+  
+  .hero-text{
+    font-size: 21px;
+  }
+} 
